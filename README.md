@@ -53,7 +53,7 @@ passwords:
 
 • download the dependencies:
 ```js
-npm i sequelize nlogin-2 mysql2
+npm i sequelize nlogin-js mysql2
 ```
 
 `config.js:`
@@ -88,7 +88,7 @@ export default sequelize;
 ```js
  // importing package and settings in es6
 import sequelize from './config.js';
-import nlogin from 'nlogin-2';
+import nlogin from 'nlogin-js';
 
  // define the class with database
 const plugin = new nlogin(sequelize);
