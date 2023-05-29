@@ -1,0 +1,30 @@
+{
+  "name": "nlogin-2",
+  "type": "module",
+  "private": false,
+  "version": "0.0.0",
+  "license": "Apache-2.0",
+  "main": "./lib/login.js",
+  "author": "sebastianjnuwu <sebastianjnuwu@gmail.com>",
+  "description": "authentication nodejs package using MySQL with Minecraft Nlogin plugin",
+  "imports": {
+    "#hash": "./lib/hash.js"
+  },
+  "scripts": {
+    "test": "echo \"everything is alright!\""
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "crypto": "^1.0.1",
+    "sprintf-js": "^1.1.2",
+    "uniqid": "^5.4.0"
+  },
+  "keywords": ["nlogin", "nlogin-2", "sequelize", "spigot", "minecraft"],
+  "homepage": "https://github.com/nlogin/sebastianjnuwu",
+  "bugs": {
+    "url": "https://github.com/sebastianjnuwu/nlogin/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
