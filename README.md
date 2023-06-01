@@ -14,7 +14,7 @@
    - get and set email 
    - get and set ip
 
-> **Warning**: The supported hashes are: ARGON2I, BCRYPT2Y, BCRYPT2A, PBKDF2, SHA256; we recommend using *SHA256*.
+> **Warning**: The supported hashes are: BCRYPT2Y, BCRYPT2A, SHA256; we recommend using **SHA256**.
 
 </p>
 <div>
