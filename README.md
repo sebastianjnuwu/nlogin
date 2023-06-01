@@ -110,22 +110,22 @@ const plugin = new nlogin(sequelize);
  
   // set the player's discord id
  login.set_discord('name', '0000', discord => {
-  console.log(discord);
+  console.log(discord); // returns true or false
  });
 
   // get the player's discord id
  login.get_discord('name', discord => {
-  console.log(discord);
+  console.log(discord); // returns result or false
  });
  
    // get the player's twitter
  login.get_twitter('name', twitter => {
-  console.log(twitter);
+  console.log(twitter); // returns result or false
  });
  
   // set the player's twitter
  login.set_twitter('name', 'name', twitter => {
-  console.log(twitter);
+  console.log(twitter); // returns true or false
  });
 
   // get the player's email 
