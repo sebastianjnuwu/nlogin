@@ -10,9 +10,9 @@
   <br>
    <i>"nLogin is an authentication system used by the biggest servers in Brazil now in javascript!"</i>
   
+   - get and set email/discord/ip
    - login verification
-   - get and set email 
-   - get and set ip
+   - get uuid 
 
 > **Warning**: The supported hashes are: BCRYPT2Y, BCRYPT2A, SHA256; we recommend using **SHA256**.
 
@@ -103,6 +103,21 @@ const plugin = new nlogin(sequelize);
    console.log(info); // return JSON or false
  });
  
+   // get the player's uuid
+ plugin.uuid('name', uuid => {
+   console.log(uuid); // returns result or false
+ });
+ 
+  // set the player's discord id
+ login.set_discord('name', '0000', discord => {
+  console.log(discord);
+ });
+
+  // get the player's discord id
+ login.get_discord('name', discord => {
+  console.log(discord);
+ });
+
   // get the player's email 
  plugin.get_email('name', email => {
    console.log(email); // returns result or false

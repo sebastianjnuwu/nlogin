@@ -4,3 +4,6 @@ node_modules
 # trash 
 package-lock.json
 yarn.lock
+
+# example
+example
