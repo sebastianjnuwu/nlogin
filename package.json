@@ -14,8 +14,11 @@
     "release": "release-it",
     "test": "echo \"everything is alright!\""
   },
+  
+"devDependencies": {
+       "release-it": "^15.0.0"
+ },
   "dependencies": {
-    "release-it": "^15.0.0",
     "bcryptjs": "^2.4.3",
     "crypto": "^1.0.1",
     "sprintf-js": "^1.1.2",
