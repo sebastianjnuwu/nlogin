@@ -14,10 +14,9 @@
     "release": "release-it",
     "test": "echo \"everything is alright!\""
   },
-  
-"devDependencies": {
-       "release-it": "^15.0.0"
- },
+  "devDependencies": {
+    "release-it": "^15.0.0"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "crypto": "^1.0.1",
