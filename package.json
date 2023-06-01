@@ -11,7 +11,7 @@
     "#hash": "./lib/hash.js"
   },
   "scripts": {
-    "release-it": "^15.0.0",
+    "release": "release-it",
     "test": "echo \"everything is alright!\""
   },
   "dependencies": {
