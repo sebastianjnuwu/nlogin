@@ -24,27 +24,8 @@
 • See below the Nlogin settings in the [plugin](https://www.nickuc.com/pt/#plugins) `config.yml`, remember to configure MySQL.
 
 ```yml
-# .....
-# Password settings.
-passwords:
-  small: 5
-  large: 15
-  bruteforce:
-    max-login-tries: 2
-    auto-punish: true
-    punishment-duration: 15
-  insecure-passwords:
-    warn: true
-    level: "123"
   hashing:
-    algorithm: "SHA256" # very important 
-    bcrypt:
-      rounds: 10
-    argon2:
-      iterations: 10
-      memory: 64
-      parallelism: 10
- # ....
+    algorithm: "SHA256" # very important
 ```
 
 ## settings using nodejs
