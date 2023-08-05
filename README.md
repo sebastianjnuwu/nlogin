@@ -30,8 +30,6 @@
 
 ## settings using nodejs
 
-**"important pay attention to the details below"**
-
 • download the dependencies:
 ```js
 npm i sequelize nlogin-js mysql2
