@@ -97,16 +97,6 @@ const plugin = new nlogin(sequelize);
   console.log(discord); // returns result or false
  });
  
-   // get the player's twitter
- login.get_twitter('name', twitter => {
-  console.log(twitter); // returns result or false
- });
- 
-  // set the player's twitter
- login.set_twitter('name', 'name', twitter => {
-  console.log(twitter); // returns true or false
- });
-
   // get the player's email 
  plugin.get_email('name', email => {
    console.log(email); // returns result or false
