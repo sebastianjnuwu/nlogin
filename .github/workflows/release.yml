@@ -54,7 +54,7 @@ jobs:
 
       - run: npm i
 
-      - uses: chainguard-dev/actions/setup-gitsign@c298839f62ad9c454d2588e78dd901f0af54cc9d
+      - uses: chainguard-dev/actions/setup-gitsign@eda5199340bd82a3c299266bd92d9096b055840d
 
       - name: Set up Git user
 
