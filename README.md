@@ -35,45 +35,30 @@
 npm i sequelize nlogin-js mysql2
 ```
 
-`config.js:`
+`main.js:`
 ```js
 import Sequelize from 'sequelize';
+import nlogin from 'nlogin-js';
 
-const sequelize = new Sequelize('database_name', 'database_user', 'database_password', {
+const sequelize = new Sequelize('nLogin', 'root', '', {
   dialect: 'mysql',
   host: '0.0.0.0',
-  port: 3306,
+  port: 3006,
   logging: false,
   define: {
     timestamps: false,
   },
 });
 
-try {
- 
 (async () => {
  await sequelize.authenticate();
- console.log(`• Connected to mysql database`);
-}) ();
- 
-} catch (e) {
-  console.log(`• An error occurred in the db: ${e.message}`);
-}
-
-export default sequelize;
-```
-
-`index.js:`
-```js
- // importing package and settings in es6
-import sequelize from './config.js';
-import nlogin from 'nlogin-js';
+})()
 
  // define the class with database
 const plugin = new nlogin(sequelize);
 
  // check password
- plugin.login('name', 'pass_123', auth => {
+ plugin.login('name', '123456', auth => {
    console.log(auth); // return true or false
  });
  
@@ -82,24 +67,24 @@ const plugin = new nlogin(sequelize);
    console.log(info); // return JSON or false
  });
  
+   // get the player's email 
+ plugin.get_email('name', email => {
+   console.log(email); // returns result or false
+ });
+ 
    // get the player's uuid
  plugin.uuid('name', uuid => {
    console.log(uuid); // returns result or false
  });
  
   // set the player's discord id
- login.set_discord('name', '0000', discord => {
+ plugin.set_discord('name', '9897878', discord => {
   console.log(discord); // returns true or false
  });
 
   // get the player's discord id
- login.get_discord('name', discord => {
+ plugin.get_discord('name', discord => {
   console.log(discord); // returns result or false
- });
- 
-  // get the player's email 
- plugin.get_email('name', email => {
-   console.log(email); // returns result or false
  });
  
   // set the player's email 
@@ -116,9 +101,9 @@ const plugin = new nlogin(sequelize);
  plugin.set_ip('name', '0.0.0.0', ip => {
    console.log(ip); // returns true or false
  });
-```
+ ```
 
 • run the following command:
 ```bash
-node index.js
+node main.js
 ```
