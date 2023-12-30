@@ -9,16 +9,12 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write # allow GITHUB_TOKEN to publish packages
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
-          node-version: "20"
-      - run: npm test
+          node-version: "18"
+      - run: npm run release
       - uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.NPM_TOKEN }}
-          registry: "https://registry.npmjs.org/"
