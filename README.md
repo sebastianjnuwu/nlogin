@@ -26,7 +26,7 @@
 
 • download the dependencies:
 ```js
-npm i sequelize nlogin-js mysql2
+npm i nlogin-js 
 ```
 
 `main.js:`
@@ -51,20 +51,16 @@ const sequelize = new Sequelize('nLogin', 'root', '', {
  // define the class with database
 const plugin = new nlogin(sequelize);
 
- // register user 
-plugin.register({ username: 'name', password: '123456' }, (register) => {
-  console.log(register); // return true or false
-});
-
- // check password
- plugin.login('name', '123456', auth => {
+ 
+ // perform player login 
+plugin.login('name', '12356', auth => {
    console.log(auth); // return true or false
  });
- 
-  // get the Nlogin information about the player.
- plugin.player('name', info => {
-   console.log(info); // return JSON or false
- });
+
+ // register user 
+plugin.register({ nickname: 'name', password: '123456', email: null, discord: 12345678910 }, (register) => {
+  console.log(register); // return true or false
+});
  ```
 
 • run the following command:
