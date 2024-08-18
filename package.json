@@ -2,20 +2,17 @@
   "name": "nlogin-js",
   "type": "module",
   "private": false,
-  "version": "2.0.1",
+  "version": "2.0.2",
   "license": "Apache-2.0",
   "main": "./lib/login.js",
   "author": "sebastianjnuwu <sebastianjnuwu@gmail.com>",
-  "description": "authentication nodejs package using MySQL with Minecraft Nlogin plugin",
   "scripts": {},
   "imports": {
-    "#pkg/*": "./lib/pkg/*.js"
+    "#hash/*": "./lib/hash/*.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "crypto": "^1.0.1",
-    "mysql2": "^3.10.1",
-    "sequelize": "^6.37.3",
     "uuid": "^10.0.0"
   },
   "keywords": [
