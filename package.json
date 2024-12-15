@@ -2,7 +2,7 @@
   "name": "nlogin-js",
   "type": "module",
   "private": false,
-  "version": "2.0.2",
+  "version": "2.0.3",
   "license": "Apache-2.0",
   "main": "./lib/login.js",
   "author": "sebastianjnuwu <sebastianjnuwu@gmail.com>",
@@ -25,10 +25,7 @@
     "minecraft"
   ],
   "homepage": "https://github.com/sebastianjnuwu/nlogin",
-  "bugs": {
-    "url": "https://github.com/sebastianjnuwu/nlogin/issues"
-  },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   }
 }
