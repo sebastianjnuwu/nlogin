@@ -80,3 +80,9 @@ console.log(auth2);
   - Verifies if the provided password matches the hash. The hash type is inferred from the hash string and can be `'PBKDF2'`, `'SHA256'`, `'SHA512'`, `'SHA'`, or `'bcrypt'`.
 
 ---
+
+<strong style="color: purple">• Ko-fi:</strong> Buy the developer a coffee [here!](https://ko-fi.com/sebastianjnuwu)
+
+<strong style="color: purple">• Sponsor:</strong> Support this project by clicking [here.](https://github.com/sponsors/sebastianjnuwu)
+
+<strong style="color: purple">• Open source:</strong> Click [here!](https://github.com/sebastianjnuwu/nlogin)
