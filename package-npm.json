@@ -1,0 +1,31 @@
+{
+  "name": "nlogin-js",
+  "type": "module",
+  "private": false,
+  "version": "2.0.4",
+  "license": "Apache-2.0",
+  "main": "./lib/login.js",
+  "author": "sebastianjnuwu <sebastianjnuwu@gmail.com>",
+  "scripts": {},
+  "imports": {
+    "#hash/*": "./lib/hash/*.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "crypto": "^1.0.1",
+    "uuid": "^11.0.0"
+  },
+  "keywords": [
+    "nlogin",
+    "nlogin-web",
+    "nlogin-js",
+    "sequelize",
+    "spigot",
+    "login",
+    "minecraft"
+  ],
+  "homepage": "https://github.com/sebastianjnuwu/nlogin",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
