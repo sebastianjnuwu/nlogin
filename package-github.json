@@ -2,7 +2,7 @@
   "name": "@sebastianjnuwu/nlogin",
   "type": "module",
   "private": false,
-  "version": "1.0.0",
+  "version": "2.0.6",
   "license": "Apache-2.0",
   "main": "./lib/login.js",
   "author": "sebastianjnuwu <sebastianjnuwu@gmail.com>",
