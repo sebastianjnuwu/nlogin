@@ -1,0 +1,39 @@
+name: Publish to npm and GitHub Packages
+
+on:
+  workflow_dispatch: 
+  
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies for npm
+        run: npm install --prefix . # Instalar dependências com o package-npm.json
+
+      # Publicar no npm registry
+      - name: Publish to npm registry
+        run: |
+          cp package-npm.json package.json  # Usar o package-npm.json para npm
+          npm publish --access public --registry https://registry.npmjs.org/
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Install dependencies for GitHub Packages
+        run: npm install --prefix . # Instalar dependências novamente para garantir a consistência
+
+      # Publicar no GitHub Packages
+      - name: Publish to GitHub Packages
+        run: |
+          cp package.github.json package.json  # Usar o package.github.json para GitHub Packages
+          npm publish --registry https://npm.pkg.github.com/
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
