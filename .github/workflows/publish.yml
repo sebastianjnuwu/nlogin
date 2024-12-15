@@ -27,8 +27,8 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Install dependencies for GitHub Packages
-        run: npm install --prefix . # Instalar dependências novamente para garantir a consistência
+     # - name: Install dependencies for GitHub Packages
+      #  run: npm install --prefix . # Instalar dependências novamente para garantir a consistência
 
       # Publicar no GitHub Packages
       - name: Publish to GitHub Packages
