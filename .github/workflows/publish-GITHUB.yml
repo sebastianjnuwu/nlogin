@@ -1,4 +1,4 @@
-name: ✨ Publish 
+name: ✨ Publish to GitHub Packages
 
 on:
   workflow_dispatch:
@@ -22,18 +22,7 @@ jobs:
 
       - name: Publish to GitHub Packages
         run: |
-          cp package-github.json package.json  # Usar o package.github.json para GitHub Packages
+          cp package-github.json package.json  # Usar o package-github.json para GitHub Packages
           npm publish --registry https://npm.pkg.github.com/
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # Autenticar no NPM
-   
-      - name: Authenticate with npm
-        run: npm set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
-
-      - name: Publish to npm registry
-        run: |
-          cp package-npm.json package.json  # Usar o package-npm.json para npm
-          npm publish --access public --registry https://registry.npmjs.org/
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
