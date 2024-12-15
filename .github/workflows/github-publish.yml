@@ -1,0 +1,29 @@
+name: Publish to GitHub Packages
+
+on:
+ workflow_dispatch:
+ 
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    # Autenticar no GitHub Packages
+    - name: Authenticate with GitHub Packages
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" > ~/.npmrc
+
+    # Publicar no GitHub Packages
+    - name: Publish to GitHub Packages
+      run: npm publish --registry https://npm.pkg.github.com/
+      
