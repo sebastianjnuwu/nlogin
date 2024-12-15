@@ -20,13 +20,6 @@ jobs:
       - name: Authenticate with npm
         run: npm set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
 
-      - name: Publish to npm registry
-        run: |
-          cp package-npm.json package.json  # Usar o package-npm.json para npm
-          npm publish --access public --registry https://registry.npmjs.org/
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       # Autenticar no GitHub Packages
       - name: Authenticate with GitHub Packages
         run: npm set //npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}
