@@ -16,8 +16,8 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install dependencies for npm
-        run: npm install --prefix . # Instalar dependências com o package-npm.json
+     # - name: Install dependencies for npm
+      #  run: npm install --prefix . # Instalar dependências com o package-npm.json
 
       # Publicar no npm registry
       - name: Publish to npm registry
