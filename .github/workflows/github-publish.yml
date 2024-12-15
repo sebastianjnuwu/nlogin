@@ -1,8 +1,8 @@
 name: 🕊️ publish (GITHUB)
 
 on:
- workflow_dispatch:
- 
+  workflow_dispatch:
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -18,7 +18,7 @@ jobs:
         cache: 'npm'
         
     - name: install 
-    - run: npm install
+      run: npm install
 
     # Autenticar no GitHub Packages
     - name: Authenticate with GitHub Packages
@@ -29,4 +29,3 @@ jobs:
     # Publicar no GitHub Packages
     - name: Publish to GitHub Packages
       run: npm publish --registry https://npm.pkg.github.com/
-      
