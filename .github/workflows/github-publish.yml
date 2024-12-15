@@ -1,4 +1,4 @@
-name: Publish to GitHub Packages
+name: 🕊️ publish (GITHUB)
 
 on:
  workflow_dispatch:
@@ -16,6 +16,9 @@ jobs:
       with:
         node-version: '18'
         cache: 'npm'
+        
+    - name: install 
+    - run: npm install
 
     # Autenticar no GitHub Packages
     - name: Authenticate with GitHub Packages
