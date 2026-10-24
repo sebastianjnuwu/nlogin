@@ -1,4 +1,3 @@
-
 ---
 
 # nLogin-js
@@ -11,17 +10,16 @@
 
 ## Overview
 
-`nLogin-js` is a JavaScript library that provides various hashing algorithms for secure password management. It is inspired by the popular nLogin system used in major servers in Brazil. This library supports multiple hashing techniques including bcrypt, PBKDF2, SHA256, SHA512, and more.
+`nlogin-js` creates and verifies password hashes in the same formats used by the
+[nLogin](https://www.nickuc.com/) plugin and by
+[nLogin-Web](https://github.com/nickuc-com/nLogin-Web). The algorithm is read
+from the hash itself, so hashes already stored in your `nlogin` table work as is.
 
 ## Installation
-
-To install `nlogin-js`, use npm or yarn:
 
 ```sh
 npm install nlogin-js
 ```
-
-or
 
 ```sh
 yarn add nlogin-js
@@ -29,60 +27,58 @@ yarn add nlogin-js
 
 ## Usage
 
-Here's a quick example of how to use `nlogin-js`:
-
 ```js
-import { Nlogin } from "nlogin-js";
+import { Nlogin } from 'nlogin-js';
 
-/**
- * Creates an instance of the Nlogin class.
- * @type {Nlogin}
- */
 const login = new Nlogin();
 
-/**
- * Creates a hash for the provided password using the specified hashing type.
- * If no type is specified, the default is bcrypt.
- * 
- * @param {string} password - The password to be hashed.
- * @param {string} [type='bcrypt'] - The type of hash to be used. Options include 'PBKDF2', 'SHA256', 'SHA512', 'SHA', or default to 'bcrypt'.
- * @returns {Promise<string>} - A promise that resolves to the hashed password.
- */
-const hash = login.$create('your password');
-
-/**
- * Verifies if the provided password matches the given hash using the type of hash specified in the hash string.
- * 
- * @param {string} hash - The hash of the password.
- * @param {string} password - The password to be verified.
- * @returns {Promise<boolean>} - A promise that resolves to true if the password matches the hash, otherwise false.
- */
-const auth2 = login.$password(hash, 'your password');
-
-console.log(hash);
-console.log(auth2);
+const hash = login.$create('my password');       // bcrypt (default)
+login.$password(hash, 'my password');            // true
+login.$password(hash, 'wrong');                  // false
 ```
+
+## Supported algorithms
+
+| Type passed to `$create`  | Hash written to the database |
+| ------------------------- | ---------------------------- |
+| `bcrypt` (default)        | `$2a$10$...`                 |
+| `SHA` (AuthMe)            | `$SHA$<salt>$<hash>$AUTHME`  |
+| `SHA256`                  | `$SHA256$<hash>$<salt>`      |
+| `SHA512`                  | `$SHA512$<hash>$<salt>`      |
+| `PBKDF2`                  | `$PBKDF2$<iterations>$...`   |
 
 ## API
 
-### `Nlogin` Class
+### `new Nlogin(options)`
 
-#### Constructor
+```js
+new Nlogin();                  // bcrypt cost 10
+new Nlogin(12);                // bcrypt cost 12
+new Nlogin({ cost: 12 });
+```
 
-- `new Nlogin()`: Creates a new instance of the `Nlogin` class.
+### Methods
 
-#### Methods
+| Method | Description |
+| ------ | ----------- |
+| `$create(password, type?)` | Creates a hash synchronously. |
+| `$createAsync(password, type?)` | Asynchronous version of `$create`. |
+| `$password(hash, password)` | Verifies synchronously. |
+| `$passwordAsync(hash, password)` | Asynchronous version of `$password`. |
+| `$type(hash)` | Returns the algorithm read from the hash (`2A`, `SHA`, ...). |
+| `$needsRehash(hash, allowDowngrade?)` | `true` when the hash uses settings weaker than the configured ones. |
 
-- `.$create(password: string, type?: string): Promise<string>`
-  - Creates a hash for the provided password. Default hashing type is `bcrypt`. Acceptable values for `type` include `'PBKDF2'`, `'SHA256'`, `'SHA512'`, `'SHA'`, or defaults to `'bcrypt'`.
+```js
+login.$type('$SHA256$abc$salt');                  // 'SHA256'
+login.$needsRehash('$2a$14$...');                 // true  (weaker than cost 10)
+login.$needsRehash('$2a$14$...', true);           // true  (allow downgrade)
+```
 
-- `.$password(hash: string, password: string): Promise<boolean>`
-  - Verifies if the provided password matches the hash. The hash type is inferred from the hash string and can be `'PBKDF2'`, `'SHA256'`, `'SHA512'`, `'SHA'`, or `'bcrypt'`.
+## nLogin compatibility
 
----
+The hashes follow the same format used by the plugin, so nothing needs to be
+migrated. See [CHANGELOG.md](./CHANGELOG.md) for the list of changes in 2.1.0.
 
-<strong style="color: purple">• Ko-fi:</strong> Buy the developer a coffee [here!](https://ko-fi.com/sebastianjnuwu)
+## License
 
-<strong style="color: purple">• Sponsor:</strong> Support this project by clicking [here.](https://github.com/sponsors/sebastianjnuwu)
-
-<strong style="color: purple">• Open source:</strong> Click [here!](https://github.com/sebastianjnuwu/nlogin)
+[Apache-2.0](./LICENSE)
